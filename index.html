@@ -31,7 +31,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 140px; }
+html { scroll-behavior: smooth; scroll-padding-top: 32px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
@@ -120,7 +120,21 @@ p { max-width: 640px; }
   font-size: 15px;
   line-height: 22px;
 }
-.banner a { color: var(--white); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.banner a { color: var(--white); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; margin-left: 24px; }
+.banner-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--coral);
+  margin-right: 10px;
+  vertical-align: 1px;
+  animation: banner-pulse 2s ease-in-out infinite;
+}
+@keyframes banner-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
 
 /* Nav */
 nav {
@@ -141,17 +155,19 @@ nav {
 }
 .nav-logo img { height: 32px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-.nav-links a { color: var(--ink); font-weight: 500; font-size: 15px; }
+.nav-links a { font-family: var(--serif); color: var(--ink); font-weight: 600; font-size: 17px; }
 .nav-links a:hover { color: var(--deep-blue); text-decoration: none; }
 .nav-links .nav-cta {
-  border: 1.5px solid var(--deep-blue);
-  color: var(--deep-blue);
-  padding: 8px 18px;
+  font-family: var(--sans);
+  font-size: 15px;
+  background: var(--coral);
+  color: var(--white);
+  padding: 10px 20px;
   border-radius: 12px;
   font-weight: 600;
   transition: background 150ms ease;
 }
-.nav-links .nav-cta:hover { background: var(--pale-wash); }
+.nav-links .nav-cta:hover { background: var(--coral-hover); }
 .nav-toggle { display: none; }
 @media (max-width: 860px) {
   .nav-links { display: none; }
@@ -189,42 +205,34 @@ nav {
   display: grid;
   grid-template-columns: 7fr 4fr;
   gap: 48px;
-  align-items: center;
+  align-items: start;
+  margin-top: 40px;
 }
 .hero h1 {
   font-size: 72px;
   line-height: 80px;
-  margin-bottom: 32px;
+  color: var(--deep-blue);
+  max-width: 1040px;
 }
-.hero h1 { color: var(--deep-blue); }
 .hero h1 .h1-accent { color: var(--clarity-blue); }
-.hero .lead { color: var(--slate); margin-bottom: 40px; }
-.hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
+.hero .lead { color: var(--slate); margin-bottom: 24px; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; }
 .headshot-wrap { display: flex; justify-content: flex-end; }
-.headshot-card { width: 100%; max-width: 380px; }
+.headshot-card { width: 100%; max-width: 320px; }
 .headshot-card img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  object-position: 62% 25%;
+  object-position: 62% 22%;
   border-radius: 16px;
   display: block;
   box-shadow: 0 4px 24px rgba(0, 72, 170, 0.10);
 }
-.headshot-caption {
-  font-size: 13px;
-  line-height: 16px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--slate);
-  margin-top: 12px;
-}
 @media (max-width: 1024px) {
   .hero h1 { font-size: 56px; line-height: 64px; }
-  .hero-grid { grid-template-columns: 1fr; }
-  .headshot-wrap { justify-content: flex-start; margin-top: 8px; }
-  .headshot-card { max-width: 340px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .headshot-wrap { justify-content: flex-start; }
+  .headshot-card { max-width: 260px; }
 }
 @media (max-width: 640px) {
   .hero { padding-top: 56px; padding-bottom: 40px; }
@@ -272,9 +280,9 @@ nav {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 32px 44px;
+  gap: 32px 34px;
 }
-.logo-row img { height: 26px; width: auto; opacity: 0.85; }
+.logo-row img { height: 25px; width: auto; opacity: 0.85; }
 .logo-row img.tall { height: 38px; }
 .logo-word {
   font-family: var(--sans);
@@ -383,7 +391,9 @@ nav {
   font-style: italic;
   color: var(--ink);
 }
-.quote .who { font-size: 15px; line-height: 22px; }
+.quote blockquote p { max-width: none; }
+.quote blockquote p + p { margin-top: 16px; }
+.quote .who { font-size: 15px; line-height: 22px; margin-top: auto; }
 .quote .who b { color: var(--ink); display: block; font-style: normal; }
 .quote .who span { color: var(--slate); }
 @media (max-width: 860px) {
@@ -468,7 +478,7 @@ p.eyebrow { color: var(--deep-blue); }
 <nav aria-label="Main">
   <div class="container nav-inner">
     <a class="nav-logo" href="#top" aria-label="JA Strategy Studio home">
-      <img src="assets/logo-lockup.png" alt="JA Strategy Studio">
+      <img src="assets/logo-lockup-transparent.png" alt="JA Strategy Studio">
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <ul class="nav-links" id="nav-links">
@@ -476,28 +486,28 @@ p.eyebrow { color: var(--deep-blue); }
       <li><a href="#how">What I do</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a class="nav-cta" href="https://calendly.com/james_abraham_call/intro">Book a call</a></li>
+      <li><a class="nav-cta" href="https://calendly.com/james_abraham_call/intro" target="_blank" rel="noopener">Book a call</a></li>
     </ul>
   </div>
 </nav>
 
-<div class="banner">Open to Chief of Staff, Operations Strategy and Founder's Office roles · <a href="#contact">Get in touch</a></div>
+<div class="banner"><span class="banner-dot" aria-hidden="true"></span>Open to Chief of Staff, Operations Strategy and Founder's Office roles<a href="#contact">Get in touch</a></div>
 
 <header class="hero container" id="top">
+  <p class="eyebrow">Strategy <span class="dot">·</span> Operations <span class="dot">·</span> AI &amp; Automation <span class="dot">·</span> London</p>
+  <h1>Clarifying messy problems <span class="h1-accent">into shipped outcomes.</span></h1>
   <div class="hero-grid">
     <div>
-      <p class="eyebrow">Strategy <span class="dot">·</span> Operations <span class="dot">·</span> AI &amp; Automation <span class="dot">·</span> London</p>
-      <h1>Clarifying messy problems <span class="h1-accent">into shipped outcomes.</span></h1>
-      <p class="lead">Founders call me when something is too important to ignore and too messy to delegate. Seven years building inside VC-backed startups, £100m+ deployed as a VC before that. I find the real shape of the problem, weigh the trade-offs, and stay to execute the roadmap.</p>
+      <p class="lead">Founders call me when something is too important to ignore and too messy to delegate.</p>
+      <p class="lead">Seven years building inside VC-backed startups, £100m+ deployed as a VC before that. I find the real shape of the problem, weigh the trade-offs, and stay to execute the roadmap.</p>
       <div class="hero-ctas">
-        <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro">Book an intro call</a>
+        <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro" target="_blank" rel="noopener">Book an intro call</a>
         <a class="btn-secondary" href="#work">See my work</a>
       </div>
     </div>
     <div class="headshot-wrap">
       <figure class="headshot-card">
         <img src="assets/headshot.jpg" alt="James Abraham, strategy and ops consultant.">
-        <figcaption class="headshot-caption">James Abraham · London</figcaption>
       </figure>
     </div>
   </div>
@@ -518,11 +528,11 @@ p.eyebrow { color: var(--deep-blue); }
     <div class="logo-row">
       <img class="tall" src="assets/client-electrongreen.png" alt="Electron Green">
       <img src="assets/client-homesun.png" alt="HomeSun">
-      <span class="logo-word">Triple Point</span>
+      <img src="assets/client-triplepoint.svg" alt="Triple Point">
       <img src="assets/client-532design.png" alt="532 Design, makers of Crowd Legends">
       <img src="assets/client-naama.png" alt="NAAMA">
       <span class="logo-word">Codesmiths</span>
-      <span class="logo-word">Mojo</span>
+      <img src="assets/client-mojo.svg" alt="Mojo">
     </div>
   </div>
 </div>
@@ -584,21 +594,17 @@ p.eyebrow { color: var(--deep-blue); }
 
 <section class="container" id="how">
   <p class="eyebrow">What I do</p>
-  <h2>What people hire me for.</h2>
-  <p class="section-intro">Three work areas, one thread: getting high-priority problems unstuck, fast.</p>
-  <div class="cards">
-    <div class="card fade">
-      <div class="num">01</div>
+  <h2>What people hire me for, and how I get it done.</h2>
+  <div class="ways" style="margin-top:48px">
+    <div class="way fade">
       <h3>Pricing &amp; commercial strategy</h3>
       <p>The hard-skill core: pricing architecture, commercial models and financial modelling. I source the data, pressure-test the assumptions, and build the numbers that back the decision.</p>
     </div>
-    <div class="card fade">
-      <div class="num">02</div>
+    <div class="way fade">
       <h3>Thinking partner &amp; founder's right hand</h3>
       <p>A second brain for the problems you can't hand to the team. I clarify messy problems as a solutions architect, act as a sounding board you can trust, and run the special projects that follow.</p>
     </div>
-    <div class="card fade">
-      <div class="num">03</div>
+    <div class="way fade">
       <h3>AI, automation &amp; operations</h3>
       <p>I get into the guts of the company and improve how it runs: processes mapped, manual work automated, AI applied where it pays. Systems that keep working after I leave.</p>
     </div>
@@ -610,16 +616,16 @@ p.eyebrow { color: var(--deep-blue); }
   <h2>In their words.</h2>
   <div class="quotes" style="margin-top:48px">
     <div class="quote fade">
-      <blockquote>"James has the rare mix of strategic depth, emotional intelligence, and sincere curiosity. He's the kind of person who helps you unlock your own thinking, and for a founder, that's absolute gold."</blockquote>
+      <blockquote><p>"James has the rare mix of strategic depth, emotional intelligence, and sincere curiosity.</p><p>He's the kind of person who helps you unlock your own thinking, and for a founder, that's absolute gold."</p></blockquote>
       <p class="who"><b>David</b><span>Founder, Beacon</span></p>
     </div>
     <div class="quote fade">
-      <blockquote>"One of those rare operators who can switch seamlessly between strategy and execution. What makes James stand out is his range, and his ability to turn messy problems into outcomes that stick."</blockquote>
+      <blockquote><p>"One of those rare operators who can switch seamlessly between strategy and execution.</p><p>What makes James stand out is his range, and his ability to turn messy problems into outcomes that stick."</p></blockquote>
       <p class="who"><b>Seb</b><span>COO, Electron Green</span></p>
     </div>
     <div class="quote fade">
-      <blockquote>"His ability to move between financial rigour and product insight made him invaluable throughout our early stages."</blockquote>
-      <p class="who"><b>Brian</b><span>Founder, Crowd Legends</span></p>
+      <blockquote><p>"His ability to move between financial rigour and product insight made him invaluable throughout our early stages."</p></blockquote>
+      <p class="who"><b>Brian</b><span>Founder, 532 Design</span></p>
     </div>
     <div class="quote fade">
       <blockquote>"James showed me that pricing is strategy. We moved from being viewed as an operational expense to a strategic revenue shield."</blockquote>
@@ -646,7 +652,7 @@ p.eyebrow { color: var(--deep-blue); }
     </div>
   </div>
   <p class="section-intro" style="margin-bottom:40px">Most work starts with a 20-minute call to find the shape of the problem. If you have a process that isn't working, an opportunity you don't have time to take advantage of, or you've hit a snag that's costing you time and revenue, book in a call.</p>
-  <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro">Book an intro call</a>
+  <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro" target="_blank" rel="noopener">Book an intro call</a>
 </section>
 
 <section class="exp" id="background">
@@ -659,7 +665,7 @@ p.eyebrow { color: var(--deep-blue); }
         <ul>
           <li><b>Freelance</b><span>Strategy &amp; Ops Consultant · Seed to Series B</span></li>
           <li><b>Electron Green / HomeSun</b><span>Operations Strategy Manager · Series A</span></li>
-          <li><b>532 Design</b><span>Strategy Manager, Crowd Legends · Seed</span></li>
+          <li><b>532 Design</b><span>Strategy Manager · Seed</span></li>
           <li><b>Mojo · NAAMA · Codesmiths</b><span>Fractional strategy &amp; ops</span></li>
           <li><b>Triple Point</b><span>Investment Manager · £100m+ deployed</span></li>
         </ul>
@@ -680,7 +686,7 @@ p.eyebrow { color: var(--deep-blue); }
   <h2>If a problem feels too important to ignore and too messy to delegate, let's talk.</h2>
   <p>I'm in London, working with founders and leadership teams at Seed to Series A. The problems worth solving rarely get easier by waiting. They get more expensive, more entangled, and harder to undo.</p>
   <div class="contact-ctas">
-    <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro">Book an intro call</a>
+    <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro" target="_blank" rel="noopener">Book an intro call</a>
   </div>
   <p class="small" style="margin:24px auto 0">or reach me at <a href="mailto:james@jamesabraham.co.uk">james@jamesabraham.co.uk</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/jdtabraham/">LinkedIn</a></p>
 </section>
@@ -710,7 +716,7 @@ p.eyebrow { color: var(--deep-blue); }
       var target = document.querySelector(a.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
-      var y = target.getBoundingClientRect().top + window.pageYOffset - 132;
+      var y = target.getBoundingClientRect().top + window.pageYOffset - 32;
       window.scrollTo({ top: Math.max(0, y), behavior: reduceMotion ? 'auto' : 'smooth' });
     });
   });
