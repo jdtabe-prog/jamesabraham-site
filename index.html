@@ -193,6 +193,8 @@ nav {
   line-height: 80px;
   margin-bottom: 32px;
 }
+.hero h1 .h1-accent { color: var(--deep-blue); }
+.cta-note { color: var(--slate); margin-top: 12px; }
 .hero .lead { color: var(--slate); margin-bottom: 40px; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
 .headshot-wrap { display: flex; justify-content: center; }
@@ -209,8 +211,8 @@ nav {
 @media (max-width: 1024px) {
   .hero h1 { font-size: 56px; line-height: 64px; }
   .hero-grid { grid-template-columns: 1fr; }
-  .headshot-wrap { order: -1; justify-content: flex-start; }
-  .headshot { width: 180px; height: 180px; }
+  .headshot-wrap { justify-content: center; margin-top: 16px; }
+  .headshot { width: 200px; height: 200px; }
 }
 @media (max-width: 640px) {
   .hero { padding-top: 56px; padding-bottom: 40px; }
@@ -377,17 +379,6 @@ nav {
   .quote blockquote { font-size: 19px; line-height: 28px; }
 }
 
-/* Now */
-.now-box {
-  border: 1.5px solid var(--deep-blue);
-  border-radius: 8px;
-  padding: 40px;
-  max-width: 760px;
-}
-.now-box h2 { margin-bottom: 16px; }
-.now-box p { color: var(--slate); }
-@media (max-width: 640px) { .now-box { padding: 24px; } }
-
 /* Ways to work */
 .ways {
   display: grid;
@@ -462,7 +453,7 @@ p.eyebrow { color: var(--deep-blue); }
 </head>
 <body>
 
-<div class="banner">Taking on new client projects for autumn 2026 · <a href="https://calendly.com/james_abraham_call/intro">Book a 20-min call</a></div>
+<div class="banner">Open to Chief of Staff, Operations Strategy and Founder's Office roles · <a href="#contact">Get in touch</a></div>
 
 <nav aria-label="Main">
   <div class="container nav-inner">
@@ -483,13 +474,14 @@ p.eyebrow { color: var(--deep-blue); }
 <header class="hero container" id="top">
   <div class="hero-grid">
     <div>
-      <p class="eyebrow">Strategy <span class="dot">·</span> Operations <span class="dot">·</span> AI Adoption <span class="dot">·</span> London</p>
-      <h1>Clarifying messy problems into shipped outcomes.</h1>
+      <p class="eyebrow">Strategy <span class="dot">·</span> Operations <span class="dot">·</span> AI &amp; Automation <span class="dot">·</span> London</p>
+      <h1>Clarifying messy problems <span class="h1-accent">into shipped outcomes.</span></h1>
       <p class="lead">Founders call me when something is too important to ignore and too messy to delegate. Seven years building inside VC-backed startups, £100m+ deployed as a VC before that. I find the real shape of the problem, weigh the trade-offs, and stay to execute the roadmap.</p>
       <div class="hero-ctas">
-        <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro">Book a 20-min call</a>
-        <a class="btn-secondary" href="#work">See the work</a>
+        <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro">Book an intro call</a>
+        <a class="btn-secondary" href="#work">See my work</a>
       </div>
+      <p class="small cta-note">20 minutes · no prep needed</p>
     </div>
     <div class="headshot-wrap">
       <img class="headshot" src="assets/headshot.jpg" alt="James Abraham, strategy and ops consultant.">
@@ -499,9 +491,9 @@ p.eyebrow { color: var(--deep-blue); }
 
 <div class="stats">
   <div class="container stats-grid">
-    <div class="stat fade"><div class="num">£1m+</div><div class="label">contracted revenue in 6 months, from stealth</div></div>
-    <div class="stat fade"><div class="num">95%</div><div class="label">pitch prep time cut with a proprietary AI tool</div></div>
-    <div class="stat fade"><div class="num">£600k</div><div class="label">of cash released by rebuilding one funding workflow</div></div>
+    <div class="stat fade"><div class="num">£1m+</div><div class="label">of revenue in 6 months, from stealth</div></div>
+    <div class="stat fade"><div class="num">90%</div><div class="label">pitch prep time and costs cut with a proprietary AI tool</div></div>
+    <div class="stat fade"><div class="num">£600k</div><div class="label">of cash unlocked by fixing one broken process</div></div>
     <div class="stat fade"><div class="num">£100m+</div><div class="label">deployed across 12 deals as a VC</div></div>
   </div>
 </div>
@@ -521,36 +513,12 @@ p.eyebrow { color: var(--deep-blue); }
   </div>
 </div>
 
-<section class="container" id="how">
-  <p class="eyebrow">What I do</p>
-  <h2>Mess to Momentum in 3 Steps</h2>
-  <p class="section-intro">The messy problems worth solving rarely get easier by waiting.</p>
-  <div class="cards">
-    <div class="card fade">
-      <div class="num">1</div>
-      <h3>Clarify</h3>
-      <p>We find the real shape of the problem, name your trade-offs and spot the levers available. You leave with a clearer head and a sharp decision.</p>
-    </div>
-    <div class="card fade">
-      <div class="num">2</div>
-      <h3>Roadmap</h3>
-      <p>We know the direction, now we plan the route. We agree on outcomes, I prioritise tasks, and match them to available resources. An action plan, not a deck.</p>
-    </div>
-    <div class="card fade">
-      <div class="num">3</div>
-      <h3>Execute</h3>
-      <p>I shift gears and deliver. Leading the project, running the workstream, or shipping the system, with your team in the loop.</p>
-    </div>
-  </div>
-</section>
-
 <section class="work" id="work">
   <div class="container">
     <p class="eyebrow">Selected work</p>
-    <h2>Proof, with numbers attached.</h2>
-    <p class="section-intro">Four engagements that show the range: venture building, AI, revenue operations, and the investor's lens behind all of it.</p>
+    <h2>Fixing, building, scaling.</h2>
 
-    <article class="case fade">
+    <article class="case fade" style="margin-top:48px">
       <div>
         <p class="meta-line"><b>01 · HomeSun</b> · Venture build</p>
         <h3>From stealth to £1m contracted revenue in six months</h3>
@@ -600,13 +568,36 @@ p.eyebrow { color: var(--deep-blue); }
   </div>
 </section>
 
+<section class="container" id="how">
+  <p class="eyebrow">What I do</p>
+  <h2>Mess to Momentum in 3 Steps</h2>
+  <p class="section-intro">The messy problems worth solving rarely get easier by waiting.</p>
+  <div class="cards">
+    <div class="card fade">
+      <div class="num">1</div>
+      <h3>Clarify</h3>
+      <p>We find the real shape of the problem, name your trade-offs and spot the levers available. You leave with a clearer head and a sharp decision.</p>
+    </div>
+    <div class="card fade">
+      <div class="num">2</div>
+      <h3>Roadmap</h3>
+      <p>We know the direction, now we plan the route. We agree on outcomes, I prioritise tasks, and match them to available resources. An action plan, not a deck.</p>
+    </div>
+    <div class="card fade">
+      <div class="num">3</div>
+      <h3>Execute</h3>
+      <p>I shift gears and deliver. Leading the project, running the workstream, or shipping the system, with your team in the loop.</p>
+    </div>
+  </div>
+</section>
+
 <section class="container" id="testimonials">
   <p class="eyebrow">What clients say</p>
   <h2>In their words.</h2>
   <div class="quotes" style="margin-top:48px">
     <div class="quote fade">
       <blockquote>"James has the rare mix of strategic depth, emotional intelligence, and sincere curiosity. He's the kind of person who helps you unlock your own thinking, and for a founder, that's absolute gold."</blockquote>
-      <p class="who"><b>David</b><span>Founder</span></p>
+      <p class="who"><b>David</b><span>Founder, Beacon</span></p>
     </div>
     <div class="quote fade">
       <blockquote>"One of those rare operators who can switch seamlessly between strategy and execution. What makes James stand out is his range, and his ability to turn messy problems into outcomes that stick."</blockquote>
@@ -620,14 +611,6 @@ p.eyebrow { color: var(--deep-blue); }
       <blockquote>"James showed me that pricing is strategy. We moved from being viewed as an operational expense to a strategic revenue shield."</blockquote>
       <p class="who"><b>Gadi Eichhorn</b><span>Founder, Indicatione</span></p>
     </div>
-  </div>
-</section>
-
-<section class="container" style="padding-top:0">
-  <div class="now-box fade">
-    <p class="eyebrow">Now · 2026</p>
-    <h2>Practising what I automate.</h2>
-    <p>I run my own consultancy on an AI-assisted operating system I built myself: outbound, research and workflow automation with Claude and friends. The same approach I bring to clients, tested on my own business first.</p>
   </div>
 </section>
 
@@ -649,7 +632,7 @@ p.eyebrow { color: var(--deep-blue); }
     </div>
   </div>
   <p class="section-intro" style="margin-bottom:40px">Most work starts with a 20-minute call to find the shape of the problem. If you have a process that isn't working, an opportunity you don't have time to take advantage of, or you've hit a snag that's costing you time and revenue, book in a call.</p>
-  <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro">Book a 20-min call</a>
+  <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro">Book an intro call</a>
 </section>
 
 <section class="exp" id="background">
@@ -660,7 +643,7 @@ p.eyebrow { color: var(--deep-blue); }
       <div class="fade">
         <h3>Where I've worked</h3>
         <ul>
-          <li><b>Freelance</b><span>Strategy &amp; Ops Consultant · 2025 to now</span></li>
+          <li><b>Freelance</b><span>Strategy &amp; Ops Consultant · Seed to Series B</span></li>
           <li><b>Electron Green / HomeSun</b><span>Operations Strategy Manager · Series A</span></li>
           <li><b>532 Design</b><span>Strategy Manager, Crowd Legends · Seed</span></li>
           <li><b>Mojo · NAAMA · Codesmiths</b><span>Fractional strategy &amp; ops</span></li>
@@ -670,7 +653,7 @@ p.eyebrow { color: var(--deep-blue); }
       <div class="fade">
         <h3>Credentials</h3>
         <ul>
-          <li><b>MSc Finance &amp; Investment</b><span>Durham University, with a Distinction for data-driven dissertation analysis</span></li>
+          <li><b>MSc Finance &amp; Investment</b><span>Durham University</span></li>
           <li><b>MA (Hons) Economics</b><span>University of St Andrews</span></li>
         </ul>
       </div>
@@ -683,7 +666,7 @@ p.eyebrow { color: var(--deep-blue); }
   <h2>If a problem feels too important to ignore and too messy to delegate, let's talk.</h2>
   <p>I'm in London, working with founders and leadership teams at Seed to Series A. The problems worth solving rarely get easier by waiting. They get more expensive, more entangled, and harder to undo.</p>
   <div class="contact-ctas">
-    <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro">Book a 20-min call</a>
+    <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro">Book an intro call</a>
   </div>
   <p class="small" style="margin:24px auto 0">or reach me at <a href="mailto:james@jamesabraham.co.uk">james@jamesabraham.co.uk</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/jdtabraham/">LinkedIn</a></p>
 </section>
@@ -705,6 +688,17 @@ p.eyebrow { color: var(--deep-blue); }
   });
   links.addEventListener('click', function (e) {
     if (e.target.tagName === 'A') { links.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
+  });
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      var y = target.getBoundingClientRect().top + window.pageYOffset - 88;
+      window.scrollTo({ top: Math.max(0, y), behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
   });
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
