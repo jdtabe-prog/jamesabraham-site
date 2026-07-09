@@ -31,7 +31,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+html { scroll-behavior: smooth; scroll-padding-top: 140px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
@@ -108,8 +108,11 @@ p { max-width: 640px; }
 }
 .btn-secondary:hover { background: var(--pale-wash); text-decoration: none; }
 
-/* Banner */
+/* Banner (sits below the sticky nav, stays fixed on scroll) */
 .banner {
+  position: sticky;
+  top: 72px;
+  z-index: 49;
   background: var(--deep-blue);
   color: var(--white);
   text-align: center;
@@ -193,26 +196,35 @@ nav {
   line-height: 80px;
   margin-bottom: 32px;
 }
-.hero h1 .h1-accent { color: var(--deep-blue); }
-.cta-note { color: var(--slate); margin-top: 12px; }
+.hero h1 { color: var(--deep-blue); }
+.hero h1 .h1-accent { color: var(--clarity-blue); }
 .hero .lead { color: var(--slate); margin-bottom: 40px; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
-.headshot-wrap { display: flex; justify-content: center; }
-.headshot {
-  width: 320px;
-  height: 320px;
-  max-width: 100%;
-  border-radius: 50%;
+.headshot-wrap { display: flex; justify-content: flex-end; }
+.headshot-card { width: 100%; max-width: 380px; }
+.headshot-card img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: 60% 30%;
-  border: 4px solid var(--clarity-blue);
-  box-shadow: 0 4px 24px rgba(0, 72, 170, 0.06);
+  object-position: 62% 25%;
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 4px 24px rgba(0, 72, 170, 0.10);
+}
+.headshot-caption {
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-top: 12px;
 }
 @media (max-width: 1024px) {
   .hero h1 { font-size: 56px; line-height: 64px; }
   .hero-grid { grid-template-columns: 1fr; }
-  .headshot-wrap { justify-content: center; margin-top: 16px; }
-  .headshot { width: 200px; height: 200px; }
+  .headshot-wrap { justify-content: flex-start; margin-top: 8px; }
+  .headshot-card { max-width: 340px; }
 }
 @media (max-width: 640px) {
   .hero { padding-top: 56px; padding-bottom: 40px; }
@@ -453,8 +465,6 @@ p.eyebrow { color: var(--deep-blue); }
 </head>
 <body>
 
-<div class="banner">Open to Chief of Staff, Operations Strategy and Founder's Office roles · <a href="#contact">Get in touch</a></div>
-
 <nav aria-label="Main">
   <div class="container nav-inner">
     <a class="nav-logo" href="#top" aria-label="JA Strategy Studio home">
@@ -463,13 +473,15 @@ p.eyebrow { color: var(--deep-blue); }
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <ul class="nav-links" id="nav-links">
       <li><a href="#work">Work</a></li>
-      <li><a href="#how">How I work</a></li>
+      <li><a href="#how">What I do</a></li>
       <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a class="nav-cta" href="https://calendly.com/james_abraham_call/intro">Book a call</a></li>
     </ul>
   </div>
 </nav>
+
+<div class="banner">Open to Chief of Staff, Operations Strategy and Founder's Office roles · <a href="#contact">Get in touch</a></div>
 
 <header class="hero container" id="top">
   <div class="hero-grid">
@@ -481,20 +493,22 @@ p.eyebrow { color: var(--deep-blue); }
         <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro">Book an intro call</a>
         <a class="btn-secondary" href="#work">See my work</a>
       </div>
-      <p class="small cta-note">20 minutes · no prep needed</p>
     </div>
     <div class="headshot-wrap">
-      <img class="headshot" src="assets/headshot.jpg" alt="James Abraham, strategy and ops consultant.">
+      <figure class="headshot-card">
+        <img src="assets/headshot.jpg" alt="James Abraham, strategy and ops consultant.">
+        <figcaption class="headshot-caption">James Abraham · London</figcaption>
+      </figure>
     </div>
   </div>
 </header>
 
 <div class="stats">
   <div class="container stats-grid">
-    <div class="stat fade"><div class="num">£1m+</div><div class="label">of revenue in 6 months, from stealth</div></div>
+    <div class="stat fade"><div class="num">£1m+</div><div class="label">From stealth to £1m of revenue in six months</div></div>
     <div class="stat fade"><div class="num">90%</div><div class="label">pitch prep time and costs cut with a proprietary AI tool</div></div>
-    <div class="stat fade"><div class="num">£600k</div><div class="label">of cash unlocked by fixing one broken process</div></div>
-    <div class="stat fade"><div class="num">£100m+</div><div class="label">deployed across 12 deals as a VC</div></div>
+    <div class="stat fade"><div class="num">£600k</div><div class="label">of cash unlocked by fixing one crucial broken process</div></div>
+    <div class="stat fade"><div class="num">£100m+</div><div class="label">deployed across 12 highly structured deals</div></div>
   </div>
 </div>
 
@@ -570,23 +584,23 @@ p.eyebrow { color: var(--deep-blue); }
 
 <section class="container" id="how">
   <p class="eyebrow">What I do</p>
-  <h2>Mess to Momentum in 3 Steps</h2>
-  <p class="section-intro">The messy problems worth solving rarely get easier by waiting.</p>
+  <h2>What people hire me for.</h2>
+  <p class="section-intro">Three work areas, one thread: getting high-priority problems unstuck, fast.</p>
   <div class="cards">
     <div class="card fade">
-      <div class="num">1</div>
-      <h3>Clarify</h3>
-      <p>We find the real shape of the problem, name your trade-offs and spot the levers available. You leave with a clearer head and a sharp decision.</p>
+      <div class="num">01</div>
+      <h3>Pricing &amp; commercial strategy</h3>
+      <p>The hard-skill core: pricing architecture, commercial models and financial modelling. I source the data, pressure-test the assumptions, and build the numbers that back the decision.</p>
     </div>
     <div class="card fade">
-      <div class="num">2</div>
-      <h3>Roadmap</h3>
-      <p>We know the direction, now we plan the route. We agree on outcomes, I prioritise tasks, and match them to available resources. An action plan, not a deck.</p>
+      <div class="num">02</div>
+      <h3>Thinking partner &amp; founder's right hand</h3>
+      <p>A second brain for the problems you can't hand to the team. I clarify messy problems as a solutions architect, act as a sounding board you can trust, and run the special projects that follow.</p>
     </div>
     <div class="card fade">
-      <div class="num">3</div>
-      <h3>Execute</h3>
-      <p>I shift gears and deliver. Leading the project, running the workstream, or shipping the system, with your team in the loop.</p>
+      <div class="num">03</div>
+      <h3>AI, automation &amp; operations</h3>
+      <p>I get into the guts of the company and improve how it runs: processes mapped, manual work automated, AI applied where it pays. Systems that keep working after I leave.</p>
     </div>
   </div>
 </section>
@@ -696,7 +710,7 @@ p.eyebrow { color: var(--deep-blue); }
       var target = document.querySelector(a.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
-      var y = target.getBoundingClientRect().top + window.pageYOffset - 88;
+      var y = target.getBoundingClientRect().top + window.pageYOffset - 132;
       window.scrollTo({ top: Math.max(0, y), behavior: reduceMotion ? 'auto' : 'smooth' });
     });
   });
