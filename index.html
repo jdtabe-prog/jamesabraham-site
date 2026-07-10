@@ -85,28 +85,32 @@ p { max-width: 640px; }
 
 /* Buttons */
 .btn-primary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   background: var(--coral);
   color: var(--white);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 18px;
   padding: 16px 28px;
-  border-radius: 12px;
+  border-radius: 999px;
   transition: background 150ms ease;
 }
 .btn-primary:hover { background: var(--coral-hover); text-decoration: none; }
-.btn-secondary {
-  display: inline-block;
-  background: transparent;
-  border: 1.5px solid var(--deep-blue);
+.btn-primary .bolt { width: 16px; height: 16px; flex: none; transition: transform 200ms ease; }
+.btn-primary:hover .bolt { transform: rotate(90deg); }
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   color: var(--deep-blue);
   font-weight: 600;
   font-size: 18px;
-  padding: 14.5px 26.5px;
-  border-radius: 12px;
-  transition: background 150ms ease;
+  padding: 16px 4px;
 }
-.btn-secondary:hover { background: var(--pale-wash); text-decoration: none; }
+.link-arrow .arrow { transition: transform 200ms ease; }
+.link-arrow:hover { text-decoration: none; }
+.link-arrow:hover .arrow { transform: translateX(4px); }
 
 /* Banner (sits below the sticky nav, stays fixed on scroll) */
 .banner {
@@ -155,19 +159,24 @@ nav {
 }
 .nav-logo img { height: 32px; width: auto; display: block; }
 .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-.nav-links a { font-family: var(--serif); color: var(--ink); font-weight: 600; font-size: 17px; }
+.nav-links a {
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 .nav-links a:hover { color: var(--deep-blue); text-decoration: none; }
 .nav-links .nav-cta {
-  font-family: var(--sans);
-  font-size: 15px;
+  font-size: 13px;
   background: var(--coral);
   color: var(--white);
   padding: 10px 20px;
-  border-radius: 12px;
-  font-weight: 600;
+  border-radius: 999px;
+  font-weight: 700;
   transition: background 150ms ease;
 }
-.nav-links .nav-cta:hover { background: var(--coral-hover); }
+.nav-links .nav-cta:hover { background: var(--coral-hover); color: var(--white); }
 .nav-toggle { display: none; }
 @media (max-width: 860px) {
   .nav-links { display: none; }
@@ -209,10 +218,9 @@ nav {
   margin-top: 40px;
 }
 .hero h1 {
-  font-size: 72px;
-  line-height: 80px;
+  font-size: 84px;
+  line-height: 92px;
   color: var(--deep-blue);
-  max-width: 1040px;
 }
 .hero h1 .h1-accent { color: var(--clarity-blue); }
 .hero .lead { color: var(--slate); margin-bottom: 24px; }
@@ -229,9 +237,9 @@ nav {
   box-shadow: 0 4px 24px rgba(0, 72, 170, 0.10);
 }
 @media (max-width: 1024px) {
-  .hero h1 { font-size: 56px; line-height: 64px; }
+  .hero h1 { font-size: 60px; line-height: 68px; }
   .hero-grid { grid-template-columns: 1fr; gap: 32px; }
-  .headshot-wrap { justify-content: flex-start; }
+  .headshot-wrap { justify-content: center; }
   .headshot-card { max-width: 260px; }
 }
 @media (max-width: 640px) {
@@ -435,6 +443,7 @@ nav {
   line-height: 64px;
   max-width: 800px;
   margin: 0 auto 24px;
+  color: var(--deep-blue);
 }
 .contact p { margin: 0 auto 40px; color: var(--slate); }
 .contact-ctas { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
@@ -459,7 +468,7 @@ footer a { color: var(--white); font-weight: 500; }
 
 /* Eyebrow colour must win over section-scoped paragraph colours */
 p.eyebrow { color: var(--deep-blue); }
-.logos p.eyebrow { color: var(--pale-wash); }
+.logos p.eyebrow { color: var(--pale-wash); text-align: center; }
 
 /* Fade-up on scroll */
 .fade {
@@ -501,8 +510,8 @@ p.eyebrow { color: var(--deep-blue); }
       <p class="lead">Founders call me when something is too important to ignore and too messy to delegate.</p>
       <p class="lead">Seven years building inside VC-backed startups, £100m+ deployed as a VC before that. I find the real shape of the problem, weigh the trade-offs, and stay to execute the roadmap.</p>
       <div class="hero-ctas">
-        <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro" target="_blank" rel="noopener">Book an intro call</a>
-        <a class="btn-secondary" href="#work">See my work</a>
+        <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro" target="_blank" rel="noopener"><svg class="bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>Book an intro call<svg class="bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></a>
+        <a class="link-arrow" href="#work">See my work<span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
     <div class="headshot-wrap">
@@ -597,15 +606,15 @@ p.eyebrow { color: var(--deep-blue); }
   <h2>What people hire me for, and how I get it done.</h2>
   <div class="ways" style="margin-top:48px">
     <div class="way fade">
+      <h3>Founder partner: right hand and second brain</h3>
+      <p>A second brain for the problems you can't hand to the team. I clarify messy problems as a solutions architect, act as a sounding board you can trust, and run the special projects that follow.</p>
+    </div>
+    <div class="way fade">
       <h3>Pricing &amp; commercial strategy</h3>
       <p>The hard-skill core: pricing architecture, commercial models and financial modelling. I source the data, pressure-test the assumptions, and build the numbers that back the decision.</p>
     </div>
     <div class="way fade">
-      <h3>Thinking partner &amp; founder's right hand</h3>
-      <p>A second brain for the problems you can't hand to the team. I clarify messy problems as a solutions architect, act as a sounding board you can trust, and run the special projects that follow.</p>
-    </div>
-    <div class="way fade">
-      <h3>AI, automation &amp; operations</h3>
+      <h3>Operations, AI &amp; automation</h3>
       <p>I get into the guts of the company and improve how it runs: processes mapped, manual work automated, AI applied where it pays. Systems that keep working after I leave.</p>
     </div>
   </div>
@@ -652,7 +661,7 @@ p.eyebrow { color: var(--deep-blue); }
     </div>
   </div>
   <p class="section-intro" style="margin-bottom:40px">Most work starts with a 20-minute call to find the shape of the problem. If you have a process that isn't working, an opportunity you don't have time to take advantage of, or you've hit a snag that's costing you time and revenue, book in a call.</p>
-  <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro" target="_blank" rel="noopener">Book an intro call</a>
+  <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro" target="_blank" rel="noopener"><svg class="bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>Book an intro call<svg class="bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></a>
 </section>
 
 <section class="exp" id="background">
@@ -682,11 +691,10 @@ p.eyebrow { color: var(--deep-blue); }
 </section>
 
 <section class="contact container" id="contact">
-  <p class="eyebrow" style="text-align:center">Contact</p>
   <h2>If a problem feels too important to ignore and too messy to delegate, let's talk.</h2>
   <p>I'm in London, working with founders and leadership teams at Seed to Series A. The problems worth solving rarely get easier by waiting. They get more expensive, more entangled, and harder to undo.</p>
   <div class="contact-ctas">
-    <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro" target="_blank" rel="noopener">Book an intro call</a>
+    <a class="btn-primary" href="https://calendly.com/james_abraham_call/intro" target="_blank" rel="noopener"><svg class="bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>Book an intro call<svg class="bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></a>
   </div>
   <p class="small" style="margin:24px auto 0">or reach me at <a href="mailto:james@jamesabraham.co.uk">james@jamesabraham.co.uk</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/jdtabraham/">LinkedIn</a></p>
 </section>
